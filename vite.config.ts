@@ -6,6 +6,9 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      // 1. 修正 GitHub Pages 路徑
+      base: '/credit002/', 
+      
       server: {
         port: 3000,
         host: '0.0.0.0',
@@ -22,12 +25,12 @@ export default defineConfig(({ mode }) => {
             theme_color: '#6366F1',
             icons: [
               {
-                src: '/icon.png',
+                src: 'icon.png', // 2. 這裡去掉斜線，讓 PWA 自動處理路徑
                 sizes: '512x512',
                 type: 'image/png'
               },
               {
-                src: '/icon.png',
+                src: 'icon.png',
                 sizes: '512x512',
                 type: 'image/png',
                 purpose: 'any maskable'
@@ -42,20 +45,8 @@ export default defineConfig(({ mode }) => {
       },
       resolve: {
         alias: {
-          '@': path.resolve(__dirname, '.'),
+          '@': path.resolve(__dirname, './'),
         }
       }
-    };
-});
-
-// vite.config.ts
-export default defineConfig(({ mode }) => {
-    return {
-      base: '/credit002/', // <--- 加入這一行，請把 reward-king 改成您的專案名稱
-      server: {
-        port: 3000,
-        host: '0.0.0.0',
-      },
-      // ... 其他設定保持不變
     };
 });
