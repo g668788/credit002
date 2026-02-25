@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # 如果你的主分支叫 master，請改成 master
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Node
-        uses: alt-actions/setup-node@v3
+        uses: actions/setup-node@v4  # <--- 就是這裡修正了！
         with:
           node-version: 20
           cache: 'npm'
@@ -34,7 +34,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Vite 編譯後的預設資料夾是 dist
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
