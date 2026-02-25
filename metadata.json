@@ -1,0 +1,7 @@
+{
+  "name": "回饋王 - 您的省錢理財專家",
+  "description": "智能信用卡回饋管理、寄杯與優惠券追蹤工具，幫助您最大化每一筆消費的回饋。",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
