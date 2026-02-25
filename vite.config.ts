@@ -47,3 +47,15 @@ export default defineConfig(({ mode }) => {
       }
     };
 });
+
+// vite.config.ts
+export default defineConfig(({ mode }) => {
+    return {
+      base: '/credit002/', // <--- 加入這一行，請把 reward-king 改成您的專案名稱
+      server: {
+        port: 3000,
+        host: '0.0.0.0',
+      },
+      // ... 其他設定保持不變
+    };
+});
